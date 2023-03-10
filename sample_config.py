@@ -27,7 +27,7 @@ class Config(object):
     # المنطقه الزمنيه احصل عليها من هنا  http://www.timezoneconverter.com/cgi-bin/findzone.tzc
     TZ = os.environ.get("TZ", "Asia/Baghdad")
     # رابط الريبو
-    UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/sbb-b/jmub")
+    UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/HHvHH/jmub")
     # ملفات خارجيه اضافيه
     EXTERNAL_REPO = os.environ.get("EXTERNAL_REPO", None)
     if bool(EXTERNAL_REPO and (EXTERNAL_REPO.lower() != "false")):
@@ -70,10 +70,10 @@ class Config(object):
     # هنا ايدي قناتك الي بيها ملفات اضافيه اذا تحب تضيف
     PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL") or 0)
     # لامر التلجراف فقط حط اسم
-    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "jmthon")
+    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "Rethon")
     # هنا خلفيه مال تلجراف او بعض الاوامر
     THUMB_IMAGE = os.environ.get(
-        "THUMB_IMAGE", "https://graph.org/file/524d0431f17854870e678.jpg"
+        "THUMB_IMAGE", "https://telegra.ph/file/061a427fe92001cfd8c8e.jpg"
     )
     # هنا اسم الملف الي ما تريده يتثبت عندك
     NO_LOAD = list(os.environ.get("NO_LOAD", "").split())
