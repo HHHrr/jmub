@@ -142,10 +142,9 @@ async def startupmessage():
             if BOTLOG:
                 await jmub.tgbot.send_message(
                     BOTLOG_CHATID,
-                    "**لقد تم بنجاح تنصيب سورس ريثون **\n➖➖➖➖➖➖➖➖➖➖\n**السورس**: @srethon\n**المطور**: @hvvhh\n➖➖➖➖➖➖➖➖➖➖\n**المطور**: @srethon
-            ➖➖➖➖",
+                    "**لقد تم بنجاح تنصيب سورس ريثون **\n➖➖➖➖➖➖➖➖➖➖\n**السورس**: @srethon\n**المطور**: @hvvhh",
                     buttons=[
-                        (Button.url("كروب المساعدة", "https://t.me/jmthon_support"),)
+                        (Button.url("المطور", "https://t.me/hvvhh"),)
                     ],
                 )
         except Exception as e:
