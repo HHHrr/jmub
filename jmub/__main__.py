@@ -18,7 +18,7 @@ from .utils import (
     verifyLoggerGroup,
 )
 
-LOGS = logging.getLogger("سورس جمثون")
+LOGS = logging.getLogger("سورس ريثون")
 
 cmdhr = Config.COMMAND_HAND_LER
 
@@ -58,7 +58,7 @@ async def startup_process():
             LOGS.info("تم انتهاء عملية التنصيب بنجاح")
             LOGS.info(
                 f"لمعرفة اوامر السورس ارسل {cmdhr}الاوامر\
-                \nمجموعة قناة السورس  https://t.me/jmthon_support"
+                \nمطور السورس  https://t.me/HvvHH"
             )
             LOGS.info("============================================================")
             await verifyLoggerGroup()
@@ -71,9 +71,9 @@ async def startup_process():
             LOGS.info(str(e))
             return
     else:
-        LOGS.info("انت لا يمكنك تنصيب سورس جمثون عزيزي دي")
-        LOGS.info("انت لا يمكنك تنصيب سورس جمثون عزيزي دي")
-        LOGS.info("انت لا يمكنك تنصيب سورس جمثون عزيزي دي")
+        LOGS.info("انت لا يمكنك تنصيب سورس ريثون عزيزي دي")
+        LOGS.info("انت لا يمكنك تنصيب سورس ريثون عزيزي دي")
+        LOGS.info("انت لا يمكنك تنصيب سورس ريثون عزيزي دي")
 
 
 jmub.loop.run_until_complete(startup_process())
