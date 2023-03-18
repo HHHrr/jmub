@@ -73,7 +73,7 @@ async def amireallyalive(event):
 temp = """{ALIVE_TEXT}
 **{EMOJI} قاعدة البيانات :** `{dbhealth}`
 **{EMOJI} اصدار التيليثون:** `{telever}`
-**{EMOJI} اصدار جمثون :** `{jmver}`
+**{EMOJI} اصدار ريثون :** `{jmver}`
 **{EMOJI} اصدار البايثون :** `{pyver}`
 **{EMOJI} الوقت :** `{uptime}`
 **{EMOJI} المالك:** {mention}"""
