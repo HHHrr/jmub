@@ -3,15 +3,17 @@ import time
 from datetime import datetime
 from platform import python_version
 
-from telethon import version
+import requests
+from telethon import Button, events, version
 from telethon.errors.rpcerrorlist import (
     MediaEmptyError,
     WebpageCurlFailedError,
     WebpageMediaEmptyError,
 )
 
-from jmub import StartTime, jmub, jmubversion
+from jmub import StartTime, jmthonversion, jmub
 
+from ..Config import Config
 from ..core.managers import edit_or_reply
 from ..helpers.functions import check_data_base_heal_th, get_readable_time
 from ..helpers.utils import reply_id
@@ -19,7 +21,7 @@ from ..sql_helper.globals import gvarstatus
 from . import mention
 
 
-@jmub.ar_cmd(pattern="فحص$")
+@jmub.ar_cmd(pattern="مدري$")
 async def amireallyalive(event):
     reply_to_id = await reply_id(event)
     uptime = await get_readable_time((time.time() - StartTime))
@@ -86,5 +88,5 @@ async def _(event):
     await event.delete()
     jmthonget = await event.get_sender()
     hnarsl = event.to_id
-    jmthon_pic = "https://telegra.ph/file/c8670dda3dfd70d763e14.jpg"
+    jmthon_pic = "https://telegra.ph/file/55452627bec045006b1c6.mp4"
     await jmub.send_file(hnarsl, jmthon_pic, caption=f"اهلا بك {jmthonget.first_name}\n\n اصدار ريثون: 5.0.0\n اصدار البايثون: {python_version()}\n اصدار التيليثون: {version.__version__}\n\nشكرا لك\nريثون™")
