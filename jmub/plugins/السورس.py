@@ -89,4 +89,4 @@ async def _(event):
     jmthonget = await event.get_sender()
     hnarsl = event.to_id
     jmthon_pic = "https://telegra.ph/file/55452627bec045006b1c6.mp4"
-    await jmub.send_file(hnarsl, jmthon_pic, caption=f"اهلا بك {jmthonget.first_name}\n\n اصدار ريثون: 5.0.0\n اصدار البايثون: {python_version()}\n اصدار التيليثون: {version.__version__}\n\nشكرا لك\nريثون™")
+    await jmub.send_file(hnarsl, jmthon_pic, caption=f"اهلا بك {jmthonget.first_name}\n . اصدار ريثون : 5.0.0\n اصدار البايثون : {python_version()} .\n اصدار التيليثون : {version.__version__} .\nمطور و مبرمج السورس : @HvvHH . \nشكرا لك .\n . ريثون™")
