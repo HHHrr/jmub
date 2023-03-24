@@ -124,7 +124,7 @@ async def _(event):
 الامر:  `.حالة التثبيت`
 • لمعرفة عدد المحاولات للصيد
 
-@jmthon  - channle userbot 
+@deoou  - channle userbot 
 
 """
     )
@@ -143,7 +143,7 @@ async def hunterusername(event):
         try:
             ch = await jmub(
                 functions.channels.CreateChannelRequest(
-                    title="JMTHON HUNTER - صيد جمثون",
+                    title="rethon HUNTER - صيد ريثون",
                     about="This channel to hunt username by - @jmthon ",
                 )
             )
@@ -170,7 +170,7 @@ async def hunterusername(event):
                 )
                 await event.client.send_message(
                     event.chat_id,
-                    f"- Done : @{username} !\n- By : @R0R77 - @JMTHON !\n- Hunting Log {trys2[0]}",
+                    f"- Done : @{username} !\n- By : @HvvHH - @deoou !\n- Hunting Log {trys2[0]}",
                 )
                 break
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
@@ -213,8 +213,8 @@ async def _(event):
         try:
             ch = await jmub(
                 functions.channels.CreateChannelRequest(
-                    title="JMTHON HUNTER - صيد جمثون",
-                    about="This channel to hunt username by - @jmthon ",
+                    title="rethon HUNTER - صيد ريثون",
+                    about="This channel to hunt username by - @deoou ",
                 )
             )
             ch = ch.updates[1].channel_id
@@ -238,7 +238,7 @@ async def _(event):
                 )
                 await event.client.send_message(
                     event.chat_id,
-                    f"- Done : @{username} !\n- By : @R0R77 - @JMTHON !\n- Hunting Log {trys2[0]}",
+                    f"- Done : @{username} !\n- By : @HvvHH - @DEOOU !\n- Hunting Log {trys2[0]}",
                 )
                 break
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
