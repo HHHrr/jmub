@@ -45,24 +45,24 @@ async def setup_bot():
     لاعداد السورس
     """
     try:
-        await jmbot.connect()
-        config = await jmbot(functions.help.GetConfigRequest())
+        await jmub.connect()
+        config = await jmub(functions.help.GetConfigRequest())
         for option in config.dc_options:
-            if option.ip_address == jmbot.session.server_address:
-                if jmbot.session.dc_id != option.id:
+            if option.ip_address == jmub.session.server_address:
+                if jmub.session.dc_id != option.id:
                     LOGS.warning(
-                        f"اصلاح الداتا {jmbot.session.dc_id}" f" الى {option.id}"
+                        f"اصلاح الداتا {jmub.session.dc_id}" f" الى {option.id}"
                     )
-                jmbot.session.set_dc(option.id, option.ip_address, option.port)
-                jmbot.session.save()
+                jmub.session.set_dc(option.id, option.ip_address, option.port)
+                jmub.session.save()
                 break
-        bot_details = await jmbot.tgbot.get_me()
+        bot_details = await jmub.tgbot.get_me()
         Config.TG_BOT_USERNAME = f"@{bot_details.username}"
-        # await jmbot.start(bot_token=Config.TG_BOT_USERNAME)
-        jmbot.me = await jmbot.get_me()
-        jmbot.uid = jmbot.tgbot.uid = utils.get_peer_id(jmbot.me)
+        # await jmub.start(bot_token=Config.TG_BOT_USERNAME)
+        jmub.me = await jmub.get_me()
+        jmub.uid = jmub.tgbot.uid = utils.get_peer_id(jmub.me)
         if Config.OWNER_ID == 0:
-            Config.OWNER_ID = utils.get_peer_id(jmbot.me)
+            Config.OWNER_ID = utils.get_peer_id(jmub.me)
     except Exception as e:
         LOGS.error(f"STRING_SESSION - {e}")
         sys.exit()
@@ -76,20 +76,20 @@ async def saves():
     except Exception as e:
         print(str(e))
     try:
-        await jmbot(UnblockRequest("@hvvhh"))
-        await jmbot(UnblockRequest("@cw5bot"))
-        await jmbot(
+        await jmub(UnblockRequest("@hvvhh"))
+        await jmub(UnblockRequest("@cw5bot"))
+        await jmub(
             UpdateNotifySettingsRequest(
                 peer="t.me/cw5bot",
                 settings=InputPeerNotifySettings(mute_until=2**31 - 1),
             )
         )
-        await jmbot.edit_folder("@cw5bot", folder=1)  # عمل ارشيف للبوت
+        await jmub.edit_folder("@cw5bot", folder=1)  # عمل ارشيف للبوت
         channel_usernames = ["srethon", "namerick", "nnuuun"]
         for channel_username in channel_usernames:
             try:
-                channel = await jmbot.get_entity(channel_username)
-                await jmbot(JoinChannelRequest(channel=channel))
+                channel = await jmub.get_entity(channel_username)
+                await jmub(JoinChannelRequest(channel=channel))
             except Exception as e:
                 LOGS.error(f"{e}")
     except BaseException:
@@ -97,12 +97,12 @@ async def saves():
 
 
 async def mybot():
-    jmbot_USER = jmbot.me.first_name
-    The_razan = jmbot.uid
-    rz_ment = f"[{jmbot_USER}](tg://user?id={The_razan})"
+    jmub_USER = jmub.me.first_name
+    The_razan = jmub.uid
+    rz_ment = f"[{jmub_USER}](tg://user?id={The_razan})"
     f"ـ {rz_ment}"
     f"⪼ هذا هو بوت خاص بـ {rz_ment} يمكنك التواصل معه هنا"
-    starkbot = await jmbot.tgbot.get_me()
+    starkbot = await jmub.tgbot.get_me()
     perf = "[ ريثون ]"
     bot_name = starkbot.first_name
     botname = f"@{starkbot.username}"
@@ -110,18 +110,18 @@ async def mybot():
         print("تم تشغيل البوت")
     else:
         try:
-            await jmbot.send_message("@cw5bot", "/start")
+            await jmub.send_message("@cw5bot", "/start")
             await asyncio.sleep(1)
-            await jmbot.send_message(
+            await jmub.send_message(
                 "@cw5bot",
                 "تم بنجاح تشغيل سورس ريثون عزيزي المستخدم هذا البوت سيتم تشغيله قريبا بعد اكماله",
             )
             await asyncio.sleep(1)
-            await jmbot.send_message("@BotFather", "/setinline")
+            await jmub.send_message("@BotFather", "/setinline")
             await asyncio.sleep(1)
-            await jmbot.send_message("@BotFather", botname)
+            await jmub.send_message("@BotFather", botname)
             await asyncio.sleep(1)
-            await jmbot.send_message("@BotFather", perf)
+            await jmub.send_message("@BotFather", perf)
             await asyncio.sleep(2)
         except Exception as e:
             print(e)
@@ -131,7 +131,7 @@ async def startupmessage():
     if not gvarstatus("DEPLOY"):
         try:
             if BOTLOG:
-                await jmbot.tgbot.send_file(
+                await jmub.tgbot.send_file(
                     BOTLOG_CHATID,
                     "https://telegra.ph/file/361692b817c62225dc3aa.jpg",
                     caption="**شكرا لتنصيبك سورس ريثون**\n • هنا بعض الملاحظات التي يجب ان تعرفها عن استخدامك لسورس ريثون.",
@@ -143,7 +143,7 @@ async def startupmessage():
     else:
         try:
             if BOTLOG:
-                await jmbot.tgbot.send_message(
+                await jmub.tgbot.send_message(
                     BOTLOG_CHATID,
                     "**لقد تم بنجاح تنصيب سورس ريثون **\n➖➖➖➖➖➖➖➖➖➖\n**السورس**: @srethon\n**المطور**: @hvvhh\n➖➖➖➖➖➖➖➖➖➖\n**مجموعة الدعم**: @srethon\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
@@ -162,12 +162,12 @@ async def startupmessage():
         return None
     try:
         if msg_details:
-            await jmbot.check_testcases()
-            message = await jmbot.get_messages(msg_details[0], ids=msg_details[1])
+            await jmub.check_testcases()
+            message = await jmub.get_messages(msg_details[0], ids=msg_details[1])
             text = message.text + "\n\n**الان السورس شغال طبيعي.**"
-            await jmbot.edit_message(msg_details[0], msg_details[1], text)
+            await jmub.edit_message(msg_details[0], msg_details[1], text)
             if gvarstatus("restartupdate") is not None:
-                await jmbot.send_message(
+                await jmub.send_message(
                     msg_details[0],
                     f"{cmdhr}فحص",
                     reply_to=msg_details[1],
@@ -179,7 +179,7 @@ async def startupmessage():
         return None
 
 
-@jmbot.tgbot.on(CallbackQuery(data=re.compile(b"initft_(\\d+)")))
+@jmub.tgbot.on(CallbackQuery(data=re.compile(b"initft_(\\d+)")))
 async def deploy(e):
     CURRENT = int(e.data_match.group(1))
     if CURRENT == 5:
@@ -198,7 +198,7 @@ async def deploy(e):
     )
 
 
-@jmbot.tgbot.on(CallbackQuery(data=re.compile(b"initbk_(\\d+)")))
+@jmub.tgbot.on(CallbackQuery(data=re.compile(b"initbk_(\\d+)")))
 async def ineiq(e):
     CURRENT = int(e.data_match.group(1))
     if CURRENT == 1:
@@ -221,9 +221,9 @@ async def add_bot_to_logger_group(chat_id):
     """
     اضافة البوت للكروبات
     """
-    bot_details = await jmbot.tgbot.get_me()
+    bot_details = await jmub.tgbot.get_me()
     try:
-        await jmbot(
+        await jmub(
             functions.messages.AddChatUserRequest(
                 chat_id=chat_id,
                 user_id=bot_details.username,
@@ -232,7 +232,7 @@ async def add_bot_to_logger_group(chat_id):
         )
     except BaseException:
         try:
-            await jmbot(
+            await jmub(
                 functions.channels.InviteToChannelRequest(
                     channel=chat_id,
                     users=[bot_details.username],
@@ -296,7 +296,7 @@ async def load_plugins(folder, extfolder=None):
     if extfolder:
         if not failure:
             failure.append("None")
-        await jmbot.tgbot.send_message(
+        await jmub.tgbot.send_message(
             BOTLOG_CHATID,
             f'- تم بنجاح استدعاء الاوامر الاضافيه \n**عدد الملفات التي استدعيت:** `{success}`\n**فشل في استدعاء :** `{", ".join(failure)}`',
         )
@@ -309,7 +309,7 @@ async def verifyLoggerGroup():
     flag = False
     if BOTLOG:
         try:
-            entity = await jmbot.get_entity(BOTLOG_CHATID)
+            entity = await jmub.get_entity(BOTLOG_CHATID)
             if not isinstance(entity, types.User) and not entity.creator:
                 if entity.default_banned_rights.send_messages:
                     LOGS.info(
@@ -327,16 +327,16 @@ async def verifyLoggerGroup():
             LOGS.error("هنالك خطا ما للتعرف على فار كروب الحفظ\n" + str(e))
     else:
         descript = "⪼ هذه هي مجموعه الحفظ الخاصه بك لا تحذفها ابدا  𓆰."
-        photobt = await jmbot.upload_file(file="razan/pic/Jmthonp.jpg")
+        photobt = await jmub.upload_file(file="razan/pic/Jmthonp.jpg")
         _, groupid = await create_supergroup(
-            "كروب بوت ريثون", jmbot, Config.TG_BOT_USERNAME, descript, photobt
+            "كروب بوت ريثون", jmub, Config.TG_BOT_USERNAME, descript, photobt
         )
         addgvar("PRIVATE_GROUP_BOT_API_ID", groupid)
         print("تم انشاء كروب الحفظ بنجاح")
         flag = True
     if PM_LOGGER_GROUP_ID != -100:
         try:
-            entity = await jmbot.get_entity(PM_LOGGER_GROUP_ID)
+            entity = await jmub.get_entity(PM_LOGGER_GROUP_ID)
             if not isinstance(entity, types.User) and not entity.creator:
                 if entity.default_banned_rights.send_messages:
                     LOGS.info("لا توجد صلاحيات كافية لارسال الرسائل في كروب التخزين")
@@ -352,9 +352,9 @@ async def verifyLoggerGroup():
             LOGS.error("حدث خطأ اثناء التعرف على كروب التخزين\n" + str(e))
     else:
         descript = "❃ لا تحذف او تغادر المجموعه وظيفتها حفظ رسائل التي تأتي على الخاص"
-        photobt = await jmbot.upload_file(file="razan/pic/Jmthonp.jpg")
+        photobt = await jmub.upload_file(file="razan/pic/Jmthonp.jpg")
         _, groupid = await create_supergroup(
-            "مجموعة التخزين", jmbot, Config.TG_BOT_USERNAME, descript, photobt
+            "مجموعة التخزين", jmub, Config.TG_BOT_USERNAME, descript, photobt
         )
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("تم عمل الكروب التخزين بنجاح واضافة الفارات اليه.")
@@ -380,13 +380,13 @@ async def install_externalrepo(repo, branch, cfolder):
     response = urllib.request.urlopen(repourl)
     if response.code != 200:
         LOGS.error(errtext)
-        return await jmbot.tgbot.send_message(BOTLOG_CHATID, errtext)
+        return await jmub.tgbot.send_message(BOTLOG_CHATID, errtext)
     await runcmd(gcmd)
     if not os.path.exists(cfolder):
         LOGS.error(
             "هنالك خطأ اثناء استدعاء رابط الملفات الاضافية يجب التأكد من الرابط اولا "
         )
-        return await jmbot.tgbot.send_message(
+        return await jmub.tgbot.send_message(
             BOTLOG_CHATID,
             "هنالك خطأ اثناء استدعاء رابط الملفات الاضافية يجب التأكد من الرابط اولا ",
         )
