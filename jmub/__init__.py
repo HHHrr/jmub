@@ -3,7 +3,7 @@ import sys
 import time
 
 import heroku3
-
+from razan.strings import blacklisted_users
 from .Config import Config
 from .core.logger import logging
 from .core.session import jmub, tgbot
