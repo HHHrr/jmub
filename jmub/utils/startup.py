@@ -19,7 +19,7 @@ from razan.CMD.utils import *
 
 from ..Config import Config
 from ..core.logger import logging
-from ..core.session import jmbot
+from ..core.session import jmub
 from ..helpers.utils import install_pip
 from ..helpers.utils.utils import runcmd
 from ..sql_helper.global_collection import (
