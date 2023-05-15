@@ -11,6 +11,7 @@ from .helpers.functions.converter import Convert
 from .helpers.functions.musictool import *
 from .helpers.utils.utils import runasync
 from .sql_helper.globals import addgvar, delgvar, gvarstatus
+from razan.strings import blacklisted_user
 
 __version__ = "3.2.0"
 __license__ = "GNU Affero General Public License v3.0"
