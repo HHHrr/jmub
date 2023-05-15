@@ -14,7 +14,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.tl.types import InputPeerNotifySettings
 
-from jmbot import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
+from jmub import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
 from razan.CMD.utils import *
 
 from ..Config import Config
